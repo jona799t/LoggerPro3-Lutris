@@ -1,0 +1,23 @@
+files:
+- setup: N/A:Select the Logger Pro 3 installer
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/Vernier Software/Logger Pro 3/LoggerPro.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    arch: win64
+    name: create_prefix
+    prefix: $GAMEDIR
+- task:
+    app: lucida
+    arch: win64
+    description: Installing Lucida font...
+    name: winetricks
+    prefix: $GAMEDIR
+    silent: true
+- task:
+    description: Installing Logger Pro 3
+    executable: setup
+    name: wineexec
+    prefix: $GAMEDIR
