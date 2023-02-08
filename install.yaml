@@ -1,21 +1,20 @@
 files:
 - setup: N/A:Select the Logger Pro 3 installer
+- lucida:
+    filename: lucidasansunicode.zip
+    url: https://www.wfonts.com/download/data/2014/11/24/lucida-sans-unicode/lucida-sans-unicode.zip
 game:
   arch: win64
   exe: drive_c/Program Files (x86)/Vernier Software/Logger Pro 3/LoggerPro.exe
   prefix: $GAMEDIR
 installer:
+- extract:
+    dst: drive_c/windows/Fonts/
+    file: $lucida
 - task:
     arch: win64
     name: create_prefix
     prefix: $GAMEDIR
-- task:
-    app: lucida
-    arch: win64
-    description: Installing Lucida font...
-    name: winetricks
-    prefix: $GAMEDIR
-    silent: true
 - task:
     description: Installing Logger Pro 3
     executable: setup
